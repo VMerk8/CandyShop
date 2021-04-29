@@ -60,6 +60,14 @@
 
       <div class="col-lg-9">
           {% block content %}
+              {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>{{ message }}</strong> You should check in on some of those fields below.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+              {% endif %}
         <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -97,6 +105,9 @@
                   <a href="{{ product.get_absolute_url }}">{{ product.title }}</a>
                 </h4>
                 <h5>{{ product.price }} руб.</h5>
+                  <a href="{% url 'add_to_cart' ct_model=product.get_model_name slug=product.slug %}">
+                    <button class="btn btn-danger">Добавить в корзину</button>
+                  </a>
               </div>
             </div>
           </div>

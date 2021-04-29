@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AddField(
             model_name='cart',
-            name='for_anonimus_user',
+            name='for_anonymous_user',
             field=models.BooleanField(default=False),
         ),
         migrations.AddField(

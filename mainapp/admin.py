@@ -1,9 +1,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from django.core.exceptions import ValidationError
 from django.forms import ModelChoiceField, ModelForm
 from .models import *
-from PIL import Image
 
 
 class ImageAdminForm(ModelForm):
@@ -60,3 +58,4 @@ admin.site.register(Notebook, NotebookAdmin)
 admin.site.register(CartProduct)
 admin.site.register(Cart)
 admin.site.register(Customer)
+admin.site.register(Order)
